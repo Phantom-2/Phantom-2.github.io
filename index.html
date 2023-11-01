@@ -4,7 +4,7 @@
     <title>Verification</title>
 </head>
 <body>
-    <h1>جارى التحقق من البلد...</h1>
+    <h1>...جارى التحقق من البلد</h1>
     <p id="result"></p>
 
     <script>
@@ -13,14 +13,14 @@
         fetch(`https://howilive.net/verify`)
             .then(response => {
                 if (response.status === 200) {
-                    document.getElementById('result').textContent = 'تم التحقق بنجاح';
+                    document.getElementById('result').textContent = '✅ تم التحقق بنجاح';
                 } else {
-                    document.getElementById('result').textContent = 'فشل فى التحقق';
+                    document.getElementById('result').textContent = '❌ فشل فى التحقق';
                 }
             })
             .catch(error => {
                 console.error(error);
-                document.getElementById('result').textContent = 'فشل فى التحقق';
+                document.getElementById('result').textContent = '❌ فشل فى التحقق';
             });
     </script>
 </body>
