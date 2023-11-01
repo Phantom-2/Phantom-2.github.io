@@ -8,9 +8,15 @@
     <p id="result"></p>
 
     <script>
+        function getQueryParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(paramName);
+        }
 
+        const id = getQueryParam('id');
+        if (id) {
         // Send a GET request to the external server
-        fetch(`https://howilive.net/verify`)
+        fetch(`https://howilive.net/verify?id=${id}`)
             .then(response => {
                 if (response.status === 200) {
                     document.getElementById('result').textContent = '✅ تم التحقق بنجاح';
@@ -22,6 +28,9 @@
                 console.error(error);
                 document.getElementById('result').textContent = '❌ فشل فى التحقق';
             });
+        }
+        
+
     </script>
 </body>
 </html>
