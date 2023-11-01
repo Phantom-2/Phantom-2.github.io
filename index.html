@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IP Checker</title>
+    <title>Verification</title>
 </head>
 <body>
-    <h1>IP Checker</h1>
+    <h1>جارى التحقق من البلد...</h1>
     <p id="result"></p>
 
     <script>
-        // Get query parameters from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const ip = urlParams.get('ip');
 
         // Send a GET request to the external server
-        fetch(`https://server2.com/ip?ip=${ip}`)
+        fetch(`https://howilive.net/verify`)
             .then(response => {
                 if (response.status === 200) {
-                    document.getElementById('result').textContent = 'Good IP';
+                    document.getElementById('result').textContent = 'تم التحقق بنجاح';
                 } else {
-                    document.getElementById('result').textContent = 'Wrong IP';
+                    document.getElementById('result').textContent = 'فشل فى التحقق';
                 }
             })
             .catch(error => {
