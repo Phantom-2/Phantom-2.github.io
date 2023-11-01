@@ -14,9 +14,11 @@
         }
 
         const id = getQueryParam('id');
-        if (id) {
+        const guild = getQueryParam('guild');
+        
+        if (id && guild) {
         // Send a GET request to the external server
-        fetch(`https://howilive.net/verify?id=${id}`)
+        fetch(`https://howilive.net/verify?id=${id}&guild=${guild}`)
             .then(response => {
                 if (response.status === 200) {
                     document.getElementById('result').textContent = '✅ تم التحقق بنجاح';
